@@ -5,3 +5,24 @@ GET http://localhost:3000/awesome HTTP/1.1
 
 ###
 GET https://cse341-lesson1-lr9m.onrender.com HTTP/1.1
+
+###
+# GET all contacts
+GET http://localhost:3000/contacts
+
+###
+# GET a single contact by ID
+GET http://localhost:3000/contacts/your-contact-id-here
+
+###
+# POST a new contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Wonder",
+  "email": "alice.wonder@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1985-04-10"
+}
