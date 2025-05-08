@@ -12,7 +12,7 @@ GET http://localhost:3000/contacts
 
 ###
 # GET a single contact by ID
-GET http://localhost:3000/contacts/your-contact-id-here
+GET http://localhost:3000/contacts/681539cbb764cbc197bc645c
 
 ###
 # POST a new contact
@@ -20,9 +20,24 @@ POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Alice",
-  "lastName": "Wonder",
-  "email": "alice.wonder@example.com",
-  "favoriteColor": "purple",
-  "birthday": "1985-04-10"
+  "firstName": "Saige",
+  "lastName": "Lewis",
+  "email": "saigemlewis@gmail.com",
+  "favoriteColor": "green",
+  "birthday": "2001-07-19"
 }
+
+###
+PUT http://localhost:3000/contacts/681539cbb764cbc197bc645c
+Content-Type: application/json
+
+{
+  "firstName": "Saige",
+  "lastName": "Lewis",
+  "email": "updated.john@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1989-06-15"
+}
+
+###
+DELETE http://localhost:3000/contacts/681d0fb012bf2341e8012393
