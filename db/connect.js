@@ -10,11 +10,10 @@ const initDb = (callback) => {
     return callback(null, _db);
   }
   
-  // Set SSL/TLS configuration options
+  // Set SSL/TLS configuration options (ignoring invalid certificates)
   const options = {
     ssl: true,
-    tlsAllowInvalidCertificates: false,  // set to true if you are dealing with invalid certificates
-    tlsInsecure: false, // set to true if you want to disable certificate verification (not recommended for production)
+    tlsAllowInvalidCertificates: true, // Only keep this if you want to ignore invalid certificates
     useUnifiedTopology: true,
     useNewUrlParser: true,
   };
