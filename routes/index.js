@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const routes = require('express').Router();
 
-router.use('/', require('./swagger'));
-router.use('/contacts', require('./contacts'));
+const myController = require('../controllers');
 
-module.exports = router;
+routes.get('/', myController.awesomeFunction);
+routes.get('/awesome', myController.anotherPerson);
+
+module.exports = routes;

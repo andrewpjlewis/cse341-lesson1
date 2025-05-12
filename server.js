@@ -1,16 +1,23 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongodb = require('./db/connect');
+require('dotenv').config();
 
-const port = process.env.PORT || 8080;
-const app = express();
+var express = require('express');
+var app = express();
+const port = process.env.PORT || 3000;
+const connectToDatabase = require('./db');
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
+app.use(express.json());
+
+connectToDatabase()
+  .then((db) => {
+    app.use('/contacts', require('./routes/contacts')(db));
+
+    app.use('/', require('./routes'));
+
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
   })
+<<<<<<< HEAD
   .use('/', require('./routes'));
 
 mongodb.initDb((err) => {
@@ -22,3 +29,8 @@ mongodb.initDb((err) => {
     });
   }
 });
+=======
+  .catch((err) => {
+    console.error("❌ Error connecting to MongoDB:", err);
+  });
+>>>>>>> parent of 40f381a (L04 api documentation)
