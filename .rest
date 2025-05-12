@@ -1,43 +1,36 @@
-GET http://localhost:3000 HTTP/1.1
-
-###
-GET http://localhost:3000/awesome HTTP/1.1
-
-###
-GET https://cse341-lesson1-lr9m.onrender.com HTTP/1.1
-
-###
 # GET all contacts
-GET http://localhost:3000/contacts
+GET http://localhost:8080/contacts
 
 ###
 # GET a single contact by ID
-GET http://localhost:3000/contacts/681539cbb764cbc197bc645c
+GET http://localhost:8080/contacts/6822618bcfba247b9c531a43
 
 ###
-# POST a new contact
-POST http://localhost:3000/contacts
+# POST/Create a new contact
+POST http://localhost:8080/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Saige",
+  "firstName": "Aaron",
   "lastName": "Lewis",
-  "email": "saigemlewis@gmail.com",
-  "favoriteColor": "green",
-  "birthday": "2001-07-19"
-}
-
-###
-PUT http://localhost:3000/contacts/681539cbb764cbc197bc645c
-Content-Type: application/json
-
-{
-  "firstName": "Saige",
-  "lastName": "Lewis",
-  "email": "updated.john@example.com",
+  "email": "aar.llewel@gmail.com",
   "favoriteColor": "Green",
-  "birthday": "1989-06-15"
+  "birthday": "05/24/2000"
 }
 
 ###
-DELETE http://localhost:3000/contacts/681d0fb012bf2341e8012393
+# PUT contact
+PUT http://localhost:8080/contacts/682261b9cfba247b9c531a45 HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Aaron",
+  "lastName": "Lewis",
+  "email": "aar.llewel@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "05/24/2000"
+}
+
+###
+# DELETE a contact
+DELETE http://localhost:8080/contacts/68225f9e5dc1ac152f95c309 HTTP/1.1
