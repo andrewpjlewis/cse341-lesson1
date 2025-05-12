@@ -1,0 +1,23 @@
+{
+  "contact": {
+    "firstName": "Saige",
+    "lastName": "Lewis",
+    "email": "saigemlewis@gmail.com",
+    "favoriteColor": "Green",
+    "birthday": "07/19/2001"
+  },
+  "contact2": {
+    "firstName": "Abigail",
+    "lastName": "Kohn",
+    "email": "22404lewis@gmail.com",
+    "favoriteColor": "red",
+    "birthday": "05/07/2004"
+  },
+  "contact3": {
+    "firstName": "Aaron",
+    "lastName": "Lewis",
+    "email": "aar.llewel@gmail.com",
+    "favoriteColor": "Green",
+    "birthday": "05/24/2000"
+  }
+}

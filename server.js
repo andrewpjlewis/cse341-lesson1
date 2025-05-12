@@ -1,22 +1,23 @@
-require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('./db/connect');
 
-var express = require('express');
-var app = express();
-const port = process.env.PORT || 3000;
-const connectToDatabase = require('./db');
+const port = process.env.PORT || 8080;
+const app = express();
 
-app.use(express.json());
-
-connectToDatabase()
-  .then((db) => {
-    app.use('/contacts', require('./routes/contacts')(db));
-
-    app.use('/', require('./routes'));
-
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
   })
-  .catch((err) => {
-    console.error("❌ Error connecting to MongoDB:", err);
-  });
+  .use('/', require('./routes'));
+
+mongodb.initDb((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
+});
