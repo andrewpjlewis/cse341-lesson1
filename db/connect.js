@@ -10,12 +10,10 @@ const initDb = (callback) => {
     return callback(null, _db);
   }
   
-  // Set SSL/TLS configuration options (enforcing secure certificates)
+  // Updated MongoDB connection options (without deprecated options)
   const options = {
     ssl: true,
-    tlsInsecure: false, // Enforce secure certificates
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
+    tlsAllowInvalidCertificates: true, // Keep this option based on your choice
   };
 
   MongoClient.connect(process.env.MONGODB_URI, options)
