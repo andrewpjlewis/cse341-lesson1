@@ -9,7 +9,17 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.MONGODB_URI)
+  
+  // Set SSL/TLS configuration options
+  const options = {
+    ssl: true,
+    tlsAllowInvalidCertificates: false,  // set to true if you are dealing with invalid certificates
+    tlsInsecure: false, // set to true if you want to disable certificate verification (not recommended for production)
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  };
+
+  MongoClient.connect(process.env.MONGODB_URI, options)
     .then((client) => {
       _db = client;
       callback(null, _db);
